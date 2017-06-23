@@ -161,33 +161,91 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="PYf-Mg-nBg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="maj-6c-4qX">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="pTa-mx-PgO" kind="relationship" relationship="viewControllers" id="25X-PG-F3o"/>
-                        <segue destination="iTh-al-bCT" kind="relationship" relationship="viewControllers" id="e3C-Pn-xr6"/>
+                        <segue destination="gF8-gr-mjj" kind="relationship" relationship="viewControllers" id="gpJ-t5-0Xm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zs8-iF-QuS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="137.18140929535232"/>
         </scene>
-        <!--Superhero-->
-        <scene sceneID="pfN-9H-Se0">
+        <!--Superhero View Controller-->
+        <scene sceneID="267-pW-c7N">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iTh-al-bCT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Superhero" image="superhero_tabbar_item" id="qGW-mH-qqc"/>
+                <viewController id="cuR-GQ-d5V" customClass="SuperheroViewController" customModule="flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AOi-HQ-uJl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ECf-Xm-vdJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JLn-XE-WVb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dtx-ML-WtR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cpi-2L-PRy">
+                                    <size key="itemSize" width="135" height="189"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PosterCell" id="Whn-20-ZU4" customClass="PosterCell" customModule="flix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="189"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="189"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mHR-cS-bVn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="248"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="mHR-cS-bVn" id="n2C-ZJ-9Gr"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pO7-mE-2Iy"/>
+                    <connections>
+                        <outlet property="collectionView" destination="dtx-ML-WtR" id="dFK-Xg-mH5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KiD-RS-AzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.2" y="917.99100449775119"/>
+        </scene>
+        <!--Superhero-->
+        <scene sceneID="xaE-7O-iBw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gF8-gr-mjj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Superhero" image="superhero_tabbar_item" id="4pH-1w-4Dl"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oP9-ic-BoH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vRN-Cx-PxX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cuR-GQ-d5V" kind="relationship" relationship="rootViewController" id="tb8-qv-bvn"/>
+                    </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2me-oO-TLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gfQ-Xo-jOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="936.88155922038993"/>
+            <point key="canvasLocation" x="140" y="917.99100449775119"/>
         </scene>
     </scenes>
     <resources>

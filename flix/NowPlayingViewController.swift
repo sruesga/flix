@@ -8,9 +8,11 @@
 
 import UIKit
 import AlamofireImage
+import PKHUD
+
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -22,8 +24,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HUD.flash(.progress, delay: 1.0)
+
         self.activityIndicator.startAnimating()
-        
+
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
@@ -53,7 +57,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
         let posterPathString = movie["poster_path"] as! String
         let baseURL = "https://image.tmdb.org/t/p/w500"
-
+        
         
         let posterURL = URL(string: baseURL + posterPathString)!
         cell.posterImageView.af_setImage(withURL: posterURL)
@@ -107,11 +111,11 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     func setupAlertController() {
         self.alertController = UIAlertController(title: "Not Connected to WiFi", message: "Connect to WiFi to view movies.", preferredStyle: .alert)
-        // create a cancel action
+        // create a try again action
         let tryAgainAction = UIAlertAction(title: "Try Again", style: .cancel) { (action) in
             self.fetchMovies()
         }
-        // add the cancel action to the alertController
+        // add the try again action to the alertController
         alertController.addAction(tryAgainAction)
     }
 }
