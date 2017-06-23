@@ -80,25 +80,6 @@
             </objects>
             <point key="canvasLocation" x="2018.4000000000001" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Coo-AP-Rfk">
-            <objects>
-                <viewController id="SJc-i6-fd7" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EKb-gZ-o8T"/>
-                        <viewControllerLayoutGuide type="bottom" id="jbb-VP-Hal"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cos-ci-iJa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="03d-b4-skA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pdj-OR-vcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1079.2" y="936.88155922038993"/>
-        </scene>
         <!--Detail View Controller-->
         <scene sceneID="Ezz-4v-ghc">
             <objects>
@@ -203,9 +184,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SJc-i6-fd7" kind="relationship" relationship="rootViewController" id="4nT-WP-Gwa"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2me-oO-TLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
