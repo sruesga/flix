@@ -16,16 +16,20 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     var movies: [[String:Any]] = []
     var refreshControl: UIRefreshControl!
+    var alertController: UIAlertController!
+    
+    
     
     override func viewDidLoad() {
-        self.activityIndicator.startAnimating()
         super.viewDidLoad()
+        self.activityIndicator.startAnimating()
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
         tableView.dataSource = self
+        setupAlertController()
         fetchMovies()
     }
     
@@ -71,6 +75,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         let task = session.dataTask(with: request) { (data, response, error) in
             // This will run when the network request returns
             if let error = error {
+                self.present(self.alertController, animated: true)
                 print(error.localizedDescription)
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
@@ -97,5 +102,16 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         let movie = movies[indexPath.row]
         let vc = segue.destination as! DetailViewController
         vc.movie = movie
+    }
+    
+    
+    func setupAlertController() {
+        self.alertController = UIAlertController(title: "Not Connected to WiFi", message: "Connect to WiFi to view movies.", preferredStyle: .alert)
+        // create a cancel action
+        let tryAgainAction = UIAlertAction(title: "Try Again", style: .cancel) { (action) in
+            self.fetchMovies()
+        }
+        // add the cancel action to the alertController
+        alertController.addAction(tryAgainAction)
     }
 }

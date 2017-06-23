@@ -264,6 +264,7 @@
 				TargetAttributes = {
 					4FA3F4301EFB1B6700B4383D = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 736R8PG8E6;
 						ProvisioningStyle = Automatic;
 					};
 					4FA3F4441EFB1B6700B4383D = {
@@ -626,6 +627,7 @@
 			baseConfigurationReference = 424F5D47F12F06EC51E79CD1 /* Pods-flix.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 736R8PG8E6;
 				INFOPLIST_FILE = flix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sruesga.flix;
@@ -639,6 +641,7 @@
 			baseConfigurationReference = EDF711F36125B393C69C05E6 /* Pods-flix.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 736R8PG8E6;
 				INFOPLIST_FILE = flix/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sruesga.flix;
