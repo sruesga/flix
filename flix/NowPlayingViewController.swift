@@ -64,8 +64,17 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
         
         
         let posterURL = URL(string: baseURL + posterPathString)!
+    
         cell.posterImageView.af_setImage(withURL: posterURL)
         
+        cell.posterImageView.alpha = 0.0
+        cell.titleLabel.alpha = 0.0
+        cell.overviewLabel.alpha = 0.0
+        UIView.animate(withDuration: 1.0, animations: { () -> Void in
+            cell.posterImageView.alpha = 1.0
+            cell.titleLabel.alpha = 1.0
+            cell.overviewLabel.alpha = 1.0
+        })
         
         return cell
     }

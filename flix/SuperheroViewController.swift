@@ -32,7 +32,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
         
         collectionView.dataSource = self
         searchBar.delegate = self
-
+        
         
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -61,6 +61,11 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
             let baseURL = "https://image.tmdb.org/t/p/w500"
             let posterURL = URL(string: baseURL + posterPathString)!
             cell.posterImageView.af_setImage(withURL: posterURL)
+            cell.posterImageView.alpha = 0.0
+            UIView.animate(withDuration: 1.0, animations: { () -> Void in
+                cell.posterImageView.alpha = 1.0
+            })
+
             
         }
         return cell
@@ -124,7 +129,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
         self.collectionView.reloadData()
         searchBar.resignFirstResponder()
     }
-
+    
     
     
     
@@ -152,7 +157,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
     func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         fetchMovies()
     }
-
+    
     
     
     
