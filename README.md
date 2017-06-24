@@ -34,8 +34,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Discuss how to have have the text in the overview label scrollable, since some text overflows.
+2. how to create tabs for different movie genres and query for movie genres.
 
 ## Video Walkthrough
 
