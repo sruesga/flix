@@ -65,8 +65,6 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
             UIView.animate(withDuration: 1.0, animations: { () -> Void in
                 cell.posterImageView.alpha = 1.0
             })
-
-            
         }
         return cell
     }
