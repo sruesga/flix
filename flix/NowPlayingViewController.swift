@@ -29,6 +29,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UISearc
         HUD.flash(.progress, delay: 1.0)
 
         self.activityIndicator.startAnimating()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
 
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
