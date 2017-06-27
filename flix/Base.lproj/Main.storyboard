@@ -133,14 +133,14 @@
                                     <constraint firstAttribute="width" constant="136" id="x9Z-Pu-ztg"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfa-FW-6Dx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zfa-FW-6Dx">
                                 <rect key="frame" x="168" y="294.5" width="50.5" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bc4-7p-I2B">
-                                <rect key="frame" x="168" y="331.5" width="99.5" height="21"/>
+                                <rect key="frame" x="168" y="358.5" width="99.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -154,13 +154,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bc4-7p-I2B" firstAttribute="bottom" secondItem="tw9-vY-LSt" secondAttribute="bottom" id="3f0-61-xZW"/>
                             <constraint firstItem="XOw-Wq-Rj5" firstAttribute="leading" secondItem="dJp-Uz-SbU" secondAttribute="leading" id="BDI-wd-KUo"/>
                             <constraint firstItem="XOw-Wq-Rj5" firstAttribute="top" secondItem="ON3-kL-Vv0" secondAttribute="bottom" id="F5g-5f-vGg"/>
                             <constraint firstItem="tw9-vY-LSt" firstAttribute="leading" secondItem="dJp-Uz-SbU" secondAttribute="leadingMargin" constant="8" id="I46-Du-hYu"/>
                             <constraint firstItem="Aag-Eu-beI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ssS-G0-IH1" secondAttribute="bottom" constant="8" id="NQc-Uj-Zth"/>
-                            <constraint firstItem="bc4-7p-I2B" firstAttribute="top" secondItem="zfa-FW-6Dx" secondAttribute="bottom" constant="8" id="NVo-UJ-ZgJ"/>
                             <constraint firstAttribute="trailing" secondItem="XOw-Wq-Rj5" secondAttribute="trailing" id="Q9O-md-3gq"/>
-                            <constraint firstItem="bc4-7p-I2B" firstAttribute="top" secondItem="zfa-FW-6Dx" secondAttribute="bottom" constant="8" id="XTr-Ri-LUH"/>
                             <constraint firstItem="ssS-G0-IH1" firstAttribute="leading" secondItem="dJp-Uz-SbU" secondAttribute="leading" constant="8" id="Xne-Gd-Fqu"/>
                             <constraint firstItem="bc4-7p-I2B" firstAttribute="leading" secondItem="zfa-FW-6Dx" secondAttribute="leading" id="cFu-aq-e9D"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zfa-FW-6Dx" secondAttribute="trailing" constant="8" id="caK-oA-mgn"/>
