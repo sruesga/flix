@@ -14,8 +14,8 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var movies: [[String: Any]] = []
-    var originalMovies: [[String:Any]] = []
+    var movies: [Movie] = []
+    var originalMovies: [Movie] = []
     var refreshControl: UIRefreshControl!
     var alertController: UIAlertController!
     
@@ -56,16 +56,9 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
-        let movie = movies[indexPath.item]
-        if let posterPathString = movie["poster_path"] as? String {
-            let baseURL = "https://image.tmdb.org/t/p/w500"
-            let posterURL = URL(string: baseURL + posterPathString)!
-            cell.posterImageView.af_setImage(withURL: posterURL)
-            cell.posterImageView.alpha = 0.0
-            UIView.animate(withDuration: 1.0, animations: { () -> Void in
-                cell.posterImageView.alpha = 1.0
-            })
-        }
+        
+        cell.movie = movies[indexPath.item]
+
         return cell
     }
     
@@ -76,25 +69,21 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
     
     // asynchronous function
     func fetchMovies() {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                self.present(self.alertController, animated: true)
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                let movies = dataDictionary["results"] as! [[String:Any]]
+        
+        
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
                 self.movies = movies
                 self.originalMovies = movies
                 self.collectionView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndicator.stopAnimating()
+                
+            } else if let error = error {
+                self.present(self.alertController, animated: true)
+                print(error.localizedDescription)
             }
         }
-        task.resume()
     }
     
     
@@ -107,9 +96,9 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIS
         // Use the filter method to iterate over all items in the data array
         // For each item, return true if the item should be included and false if the
         // item should NOT be included
-        self.movies = searchText.isEmpty ? self.originalMovies : self.originalMovies.filter { (movie: [String:Any]) -> Bool in
+        self.movies = searchText.isEmpty ? self.originalMovies : self.originalMovies.filter { (movie: Movie) -> Bool in
             // If dataItem matches the searchText, return true to include it
-            return (movie["title"] as! String).range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            return movie.title.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
         
         self.collectionView.reloadData()

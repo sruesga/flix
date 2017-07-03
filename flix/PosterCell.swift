@@ -11,6 +11,17 @@ import UIKit
 class PosterCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
+
+    var movie: Movie! {
+        didSet {
+            posterImageView.af_setImage(withURL: movie.posterURL!)
+            posterImageView.alpha = 0.0
+            UIView.animate(withDuration: 1.0, animations: { () -> Void in
+                self.posterImageView.alpha = 1.0
+            })
+
+        }
+    }
     
     
 }
